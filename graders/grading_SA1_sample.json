@@ -3,7 +3,7 @@
     {
       "name": "Case 1 Request",
       "setup": "make -s >/dev/null 2>&1",
-      "run": "./server | grep \"Server received\" > test-files/out.txt & ./client Gabriel 6 7; diff <(head test-files/out.txt) <(head test-files/test_1.txt)",
+      "run": "./server | grep \"Server received\" > test-files/out.txt & ./client Gabriel 6 7; head -n 1 test-files/out.txt > test-files/tmp1.txt; head -n 1 test-files/test_1.txt > test-files/tmp2.txt; diff test-files/tmp1.txt test-files/tmp2.txt",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -13,7 +13,7 @@
     {
       "name": "Case 1 Reply",
       "setup": "make -s >/dev/null 2>&1",
-      "run": "./server & ./client Gabriel 6 7 | grep \"Client received\" > test-files/out.txt; diff <(head test-files/out.txt) <(head test-files/test_2.txt)",
+      "run": "./server & ./client Gabriel 6 7 | grep \"Client received\" > test-files/out.txt; head -n 1 test-files/out.txt > test-files/tmp1.txt; head -n 1 test-files/test_2.txt > test-files/tmp2.txt; diff test-files/tmp1.txt test-files/tmp2.txt",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -23,7 +23,7 @@
     {
       "name": "Case 2 Request",
       "setup": "make -s >/dev/null 2>&1",
-      "run": "./server | grep \"Server received\" > test-files/out.txt & ./client \"Test Subject\" 4 1; <(head test-files/out.txt) <(head test-files/test_3.txt)",
+      "run": "./server | grep \"Server received\" > test-files/out.txt & ./client \"Test Subject\" 4 1; head -n 1 test-files/out.txt > test-files/tmp1.txt; head -n 1 test-files/test_3.txt > test-files/tmp2.txt; diff test-files/tmp1.txt test-files/tmp2.txt",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -33,7 +33,7 @@
     {
       "name": "Case 2 Reply",
       "setup": "make -s >/dev/null 2>&1",
-      "run": "./server & ./client \"Test Subject\" 4 1 | grep \"Client received\" > test-files/out.txt; diff <(head test-files/out.txt) <(head test-files/test_4.txt)",
+      "run": "./server & ./client \"Test Subject\" 4 1 | grep \"Client received\" > test-files/out.txt; head -n 1 test-files/out.txt > test-files/tmp1.txt; head -n 1 test-files/test_4.txt > test-files/tmp2.txt; diff test-files/tmp1.txt test-files/tmp2.txt",
       "input": "",
       "output": "",
       "comparison": "included",
