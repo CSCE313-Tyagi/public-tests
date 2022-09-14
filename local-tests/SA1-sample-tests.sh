@@ -26,6 +26,7 @@ echo -e "\nTesting :: ./client Gabriel 6 7 (request)\n"
 remake
 ./server | grep "Server received" >test-files/out.txt 2>/dev/null &
 ./client Gabriel 6 7 >/dev/null 2>&1
+wait
 if diff test-files/out.txt test-files/test_1.txt; then
     echo -e "  ${GREEN}Passed${NC}"
 else
@@ -36,6 +37,7 @@ echo -e "\nTesting :: ./client Gabriel 6 7 (reply)\n"
 remake
 ./server >/dev/null 2>&1 &
 ./client Gabriel 6 7 | grep "Client received" > test-files/out.txt 2>/dev/null
+wait
 if diff test-files/out.txt test-files/test_2.txt; then
     echo -e "  ${GREEN}Passed${NC}"
 else
@@ -46,6 +48,7 @@ echo -e "\nTesting :: ./client \"Test Subject\" 4 1 (request)\n"
 remake
 ./server | grep "Server received" >test-files/out.txt 2>/dev/null &
 ./client "Test Subject" 4 1 >/dev/null 2>&1
+wait
 if diff test-files/out.txt test-files/test_3.txt; then
     echo -e "  ${GREEN}Passed${NC}"
 else
@@ -56,6 +59,7 @@ echo -e "\nTesting :: ./client \"Test Subject\" 4 1 (reply)\n"
 remake
 ./server >/dev/null 2>&1 &
 ./client "Test Subject" 4 1 | grep "Client received" > test-files/out.txt 2>/dev/null
+wait
 if diff test-files/out.txt test-files/test_4.txt; then
     echo -e "  ${GREEN}Passed${NC}"
 else
