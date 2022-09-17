@@ -76,7 +76,7 @@
       {
         "name": "Case 4 Request (Nevada)",
         "setup": "make -s clean; make -s >/dev/null 2>&1",
-        "run": "./server | tee test-files/out_server.txt & ./client -s Nevada | tee test-files/out_client.txt; wait; diff -q test-files/out_server.txt test-files/test_4_server.txt",
+        "run": "./server > test-files/out_server.txt 2>/dev/null & ./client -s Nevada > test-files/out_client.txt 2>/dev/null; wait; diff -q test-files/out_server.txt test-files/test_4_server.txt",
         "input": "",
         "output": "",
         "comparison": "included",
@@ -86,7 +86,7 @@
       {
         "name": "Case 4 Reply (Nevada)",
         "setup": "make -s clean; make -s >/dev/null 2>&1",
-        "run": "./server | tee test-files/out_server.txt & ./client -s Nevada | tee test-files/out_client.txt; wait; diff -q test-files/out_client.txt test-files/test_4_client.txt",
+        "run": "./server > test-files/out_server.txt 2>/dev/null & ./client -s Nevada > test-files/out_client.txt 2>/dev/null; wait; diff -q test-files/out_client.txt test-files/test_4_client.txt",
         "input": "",
         "output": "",
         "comparison": "included",
