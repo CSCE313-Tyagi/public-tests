@@ -26,8 +26,8 @@ remake
 
 timeout 2 ./server >/dev/null 2>&1 &
 timeout 1 strace -e trace=openat -f -o test-files/trace ./client -n Ali -i 8361 >/dev/null 2>&1
-cat test-files/trace | grep pipe_ | sed 's/[0-9]* //1' | sed 's/ = [0-9]*//1' > test-files/out_client.txt
 wait
+cat test-files/trace | grep pipe_ | sed 's/[0-9]* //1' | sed 's/ = [0-9]*//1' > test-files/out_client.txt
 if diff -qwB test-files/out_client.txt test-files/test_0.txt; then
     echo -e "   ${GREEN}Passed${NC}"
 else
