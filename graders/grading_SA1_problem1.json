@@ -1,6 +1,16 @@
 {
   "tests": [
     {
+      "name": "Compilation",
+      "setup": "make -s clean",
+      "run": "make",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
       "name": "Client Opens Pipes",
       "setup": "make -s clean; make -s >/dev/null 2>&1",
       "run": "./server >/dev/null 2>&1 & strace -e trace=openat -f -o test-files/trace ./client -n Ali -i 8361 >/dev/null 2>&1; wait; cat test-files/trace | grep pipe_ | sed 's/[0-9]* //1' | sed 's/ = [0-9]*//1' > test-files/out_client.txt; diff -qwB test-files/out_client.txt test-files/test_0.txt",
