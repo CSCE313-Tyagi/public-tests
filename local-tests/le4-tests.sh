@@ -66,7 +66,7 @@ if [ $(grep 'rt_sigaction(SIGRTMIN' trace.txt | wc -l) -gt 0 ]; then
     echo -e "  ${GREEN}Passed${NC}"
     SCORE=$(($SCORE+24))
 else
-    echo -e "  ${RED}Incorrect use of signals${NC}"
+    echo -e "  ${RED}Incorrect use of timers${NC}"
 fi
 
 # remake
