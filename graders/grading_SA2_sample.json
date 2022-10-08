@@ -99,7 +99,7 @@
     {
       "name": "B: Fork-Exec 1",
       "setup": "cd B; make -s clean; make -s",
-      "run": "cd B; strace -e trace=execve -o test-files/out.txt -f ./teetoo /dev/null ./greeter >/dev/null 2>&1; grep -qF \"[\\\"./greeter\\\"]\" test-files/out.txt",
+      "run": "cd B; strace -e trace=execve -o test-files/out.txt -f ./teetoo /dev/null ./greeter 3 10 >/dev/null 2>&1; grep -qF \"[\\\"./greeter\\\", \\\"3\\\", \\\"10\\\"]\" test-files/out.txt",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -110,7 +110,7 @@
     {
       "name": "B: Fork-Exec 2",
       "setup": "cd B; make -s clean; make -s",
-      "run": "cd B; strace -e trace=execve -o test-files/out.txt -f ./teetoo /dev/null ls -al >/dev/null 2>&1; grep -qF \"[\\\"ls\\\", \\\"-al\\\"]\" test-files/out.txt",
+      "run": "cd B; strace -e trace=execve -o test-files/out.txt -f ./teetoo /dev/null ls >/dev/null 2>&1; grep -qF \"[\\\"ls\\\"]\" test-files/out.txt",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -132,7 +132,7 @@
     {
       "name": "B: Output 2",
       "setup": "cd B; make -s clean; make -s",
-      "run": "cd B; ./teetoo test-files/out.txt ls -al >test-files/stdout.txt 2>test-files/stderr.txt; ls -al >test-files/stdout_correct.txt 2>/dev/null; diff test-files/stdout_correct.txt test-files/stdout.txt && diff test-files/stdout_correct.txt test-files/out.txt && diff test-files/stderr_correct_2.txt test-files/stderr.txt",
+      "run": "cd B; ./teetoo test-files/out.txt ls >test-files/stdout.txt 2>test-files/stderr.txt; ls >test-files/stdout_correct.txt 2>/dev/null; diff test-files/stdout_correct.txt test-files/stdout.txt && diff test-files/stdout_correct.txt test-files/out.txt && diff test-files/stderr_correct_2.txt test-files/stderr.txt",
       "input": "",
       "output": "",
       "comparison": "included",
