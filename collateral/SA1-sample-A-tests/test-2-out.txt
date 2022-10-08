@@ -1,0 +1,10 @@
+Delay: 10 ms
+Step: 1
+ Received "hi"
+  Sending "hi"
+ Child is alive
+Step: 2
+ Blank line, exiting loop
+Done with loop
+Killing child
+Bye!

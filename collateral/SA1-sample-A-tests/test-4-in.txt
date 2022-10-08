@@ -1,0 +1,7 @@
+hi 1
+INT
+hi 2
+INT
+INT
+hi 3
+exit

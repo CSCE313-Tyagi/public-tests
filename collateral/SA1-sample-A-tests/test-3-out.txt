@@ -1,0 +1,23 @@
+Delay: 10 ms
+Step: 1
+ Received "hi"
+  Sending "hi"
+ Child is alive
+Step: 2
+ Received "hello"
+  Sending "hello"
+ Child is alive
+Step: 3
+ Received "INT"
+  Sending SIGINT
+ Child is alive
+Step: 4
+ Received "hello?"
+  Sending "hello?"
+ Child is alive
+Step: 5
+ Received "exit"
+  Sending "exit"
+ Child is done
+Done with loop
+Bye!

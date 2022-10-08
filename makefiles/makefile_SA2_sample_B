@@ -1,0 +1,13 @@
+CXX=g++
+CXXFLAGS=-std=c++17 -g -pedantic -Wall -Wextra -fno-omit-frame-pointer
+
+all: teetoo greeter
+
+.PHONY: clean test
+
+clean: 
+	rm -f teetoo greeter test-files/out.txt test-files/trace.txt test-files/stdout.txt test-files/stderr.txt test-files/stdout_correct.txt 
+
+test:
+	chmod u+x SA2-sampleB-tests.sh
+	./SA2-sampleB-tests.sh

@@ -1,0 +1,3 @@
+Tee2 opening file: test-files/out.txt
+Tee2 issuing command: ./greeter 3 10
+Bye!

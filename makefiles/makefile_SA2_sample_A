@@ -1,0 +1,13 @@
+CXX=g++
+CXXFLAGS=-std=c++17 -g -pedantic -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer
+
+all: rude stubborn
+
+.PHONY: clean test
+
+clean: 
+	rm -f rude stubborn test-files/out.txt
+
+test:
+	chmod u+x SA2-sampleA-tests.sh
+	./SA2-sampleA-tests.sh
