@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "Compilation",
-      "setup": "make -s clean",
+      "setup": "cd A; make -s clean",
       "run": "make",
       "input": "",
       "output": "",
