@@ -1,0 +1,5 @@
+Factorial of: "11" (11)
+    Calculator starting...
+    Number: 11
+    The factorial: 39916800
+Done!

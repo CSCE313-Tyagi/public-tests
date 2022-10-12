@@ -1,0 +1,13 @@
+CXX=g++
+CXXFLAGS=-std=c++17 -g -pedantic -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer
+
+all: factorial calculator
+
+.PHONY: clean test
+
+clean:
+	rm -f factorial calculator test-files/out.txt
+
+test: all
+	chmod u+x SA2B-tests.sh
+	./SA2B-tests.sh

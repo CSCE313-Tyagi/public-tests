@@ -1,0 +1,5 @@
+Factorial of: "8" (8)
+    Calculator starting...
+    Number: 8
+    The factorial: 40320
+Done!

@@ -1,0 +1,13 @@
+CXX=g++
+CXXFLAGS=-std=c++17 -g -pedantic -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer
+
+all: lister
+
+.PHONY: clean test
+
+clean:
+	rm -f lister files.txt tmp.txt test-files/out.txt test-files/trace.txt test-files/test_1.txt
+
+test: all
+	chmod u+x SA2C-tests.sh
+	./SA2C-tests.sh

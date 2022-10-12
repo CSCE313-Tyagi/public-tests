@@ -1,0 +1,5 @@
+Factorial of: "5" (5)
+    Calculator starting...
+    Number: 5
+    The factorial: 120
+Done!

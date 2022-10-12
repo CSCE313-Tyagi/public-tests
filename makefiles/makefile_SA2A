@@ -1,0 +1,13 @@
+CXX=g++
+CXXFLAGS=-std=c++17 -g -pedantic -Wall -Wextra -fno-omit-frame-pointer
+
+all: signaling
+
+.PHONY: clean test
+
+clean:
+	rm -rf signaling trace tmp test-files/out.txt
+
+test: all
+	chmod u+x SA2A-tests.sh
+	./SA2A-tests.sh
