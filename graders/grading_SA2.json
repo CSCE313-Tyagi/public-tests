@@ -28,7 +28,7 @@
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 0
+      "points": 1
     },
     {
       "name": "A: Correct output",
@@ -38,7 +38,7 @@
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 0
+      "points": 1
     },
     
     {
@@ -52,14 +52,24 @@
       "points": 0
     },
     {
-      "name": "B: ?",
+      "name": "B: Executes calculator",
       "setup": "cd B; make -s clean; make -s &>/dev/null",
-      "run": "cd B; ",
+      "run": "cd B; ./factorial 5 > test-files/out_1.txt; ./factorial 8 > test-files/out_2.txt; ./factorial 11 > test-files/out_3.txt; RES=\"    Calculator starting...\"; grep -q $RES test-files/out_1.txt &>/dev/null && grep -q $RES test-files/out_2.txt &>/dev/null && grep -q $RES test-files/out_3.txt &>/dev/null",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 0
+      "points": 1
+    },
+    {
+      "name": "B: Correct output",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./factorial 5 > test-files/out_1.txt; ./factorial 8 > test-files/out_2.txt; ./factorial 11 > test-files/out_3.txt; diff -q test-files/out_1.txt test-files/test_1.txt &>/dev/null && diff -q test-files/out_2.txt test-files/test_2.txt &>/dev/null && diff -q test-files/out_3.txt test-files/test_3.txt &>/dev/null",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
     },
     
     {
