@@ -13,7 +13,7 @@
     {
       "name": "A: Handles SIGINT",
       "setup": "cd A; make -s clean; make -s &>/dev/null",
-      "run": "cd A; strace -e trace=signal -o trace ./signaling > tmp; ADDR=$(awk '/Address:/ {print $2}' tmp); SEC=$(cat trace | grep \"sigaction(SIGINT\" | grep -o $ADDR); diff -q <(echo $ADDR) <(echo $SEC) &>/dev/null",
+      "run": "cd A; strace -e trace=signal -o trace ./signaling > tmp; ADDR=$(awk '/Address:/ {print $2}' tmp); SEC=$(cat trace | grep \"sigaction(SIGINT\" | grep -o $ADDR); [ $ADDR == $SEC ]",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -54,7 +54,7 @@
     {
       "name": "B: Executes calculator",
       "setup": "cd B; make -s clean; make -s &>/dev/null",
-      "run": "cd B; ./factorial 5 > test-files/out_1.txt; ./factorial 8 > test-files/out_2.txt; ./factorial 11 > test-files/out_3.txt; RES=\"    Calculator starting...\"; grep -q $RES test-files/out_1.txt &>/dev/null && grep -q $RES test-files/out_2.txt &>/dev/null && grep -q $RES test-files/out_3.txt &>/dev/null",
+      "run": "cd B; ./factorial 5 > test-files/out_1.txt 2>/dev/null; ./factorial 8 > test-files/out_2.txt 2>/dev/null; ./factorial 11 > test-files/out_3.txt 2>/dev/null; RES=\"    Calculator starting...\"; grep -q $RES test-files/out_1.txt &>/dev/null && grep -q $RES test-files/out_2.txt &>/dev/null && grep -q $RES test-files/out_3.txt &>/dev/null",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -64,7 +64,7 @@
     {
       "name": "B: Correct output",
       "setup": "cd B; make -s clean; make -s &>/dev/null",
-      "run": "cd B; ./factorial 5 > test-files/out_1.txt; ./factorial 8 > test-files/out_2.txt; ./factorial 11 > test-files/out_3.txt; diff -q test-files/out_1.txt test-files/test_1.txt &>/dev/null && diff -q test-files/out_2.txt test-files/test_2.txt &>/dev/null && diff -q test-files/out_3.txt test-files/test_3.txt &>/dev/null",
+      "run": "cd B; ./factorial 5 > test-files/out_1.txt 2>/dev/null; ./factorial 8 > test-files/out_2.txt 2>/dev/null; ./factorial 11 > test-files/out_3.txt 2>/dev/null; diff -q test-files/out_1.txt test-files/test_1.txt &>/dev/null && diff -q test-files/out_2.txt test-files/test_2.txt &>/dev/null && diff -q test-files/out_3.txt test-files/test_3.txt &>/dev/null",
       "input": "",
       "output": "",
       "comparison": "included",
