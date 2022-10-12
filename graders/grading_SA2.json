@@ -83,14 +83,44 @@
       "points": 0
     },
     {
-      "name": "C: ?",
+      "name": "C: Opens files.txt",
       "setup": "cd C; make -s clean; make -s &>/dev/null",
-      "run": "cd C; ",
+      "run": "cd C; strace -e trace=openat -o test-files/trace.txt ./lister &>/dev/null; VAR=$(grep -F \"openat\" test-files/trace.txt | grep -F \"files.txt\"); grep -F \"openat\" test-files/trace.txt | grep -F \"files.txt\" &>/dev/null && echo $VAR | grep -qF \"O_WRONLY|O_CREAT|O_TRUNC\" &>/dev/null",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 0
+      "points": 1
+    },
+    {
+      "name": "C: Redirects stdout to files.txt",
+      "setup": "cd C; make -s clean; make -s &>/dev/null",
+      "run": "cd C; ./lister > test-files/out.txt; grep -q \"***Running child\" files.txt &>/dev/null",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "C: Restores stdout",
+      "setup": "cd C; make -s clean; make -s &>/dev/null",
+      "run": "cd C; ./lister > test-files/out.txt; grep -q \"Test complete\" test-files/out.txt &>/dev/null",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "C: Correct output",
+      "setup": "cd C; make -s clean; make -s &>/dev/null",
+      "run": "cd C; ./lister > test-files/out.txt; echo \"***Running child\" > test-files/test_1.txt; ls >> test-files/test_1.txt; diff -q files.txt test-files/test_1.txt &>/dev/null && diff -q test-files/out.txt test-files/test_2.txt &>/dev/null",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
     }
   ]
 }
