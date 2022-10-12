@@ -10,6 +10,36 @@
       "timeout": 1,
       "points": 0
     },
+    {
+      "name": "A: Handles SIGINT",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; strace -e trace=signal -o trace ./signaling > tmp; ADDR=$(awk '/Address:/ {print $2}' tmp); SEC=$(cat trace | grep \"sigaction(SIGINT\" | grep -o $ADDR); diff -q <(echo $ADDR) <(echo $SEC) &>/dev/null",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "A: Program doesn't crash",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./signaling &>/dev/null",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0
+    },
+    {
+      "name": "A: Correct output",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./signaling > tmp; tail -n 2 tmp > test-files/out.txt; diff -q test-files/out.txt test-files/test_1.txt &>/dev/null",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0
+    },
     
     {
       "name": "B: Compilation",
