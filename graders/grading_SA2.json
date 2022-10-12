@@ -13,7 +13,7 @@
     {
       "name": "A: Handles SIGINT",
       "setup": "cd A; make -s clean; make -s &>/dev/null",
-      "run": "cd A; strace -e trace=signal -o trace ./signaling > tmp; ADDR=$(awk '/Address:/ {print $2}' tmp); test -n \"$ADDR\" && SEC=$(cat trace | grep \"sigaction(SIGINT\" | grep -o $ADDR) && test $ADDR -eq $SEC",
+      "run": "cd A; strace -e trace=signal -o trace ./signaling > tmp; ADDR=$(awk '/Address:/ {print $2}' tmp); test -n \"$ADDR\" && SEC=$(cat trace | grep \"sigaction(SIGINT\" | grep -o $ADDR) && test $ADDR == $SEC",
       "input": "",
       "output": "",
       "comparison": "included",
