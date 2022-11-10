@@ -1,0 +1,13 @@
+CXX=g++
+CXXFLAGS=-std=c++17 -g -pedantic -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer
+
+all: sampleC
+
+.PHONY: clean test
+
+clean: 
+	rm -f sampleC test-files/out.txt
+
+test:
+	chmod u+x SA3-sampleC-tests.sh
+	./SA3-sampleC-tests.sh

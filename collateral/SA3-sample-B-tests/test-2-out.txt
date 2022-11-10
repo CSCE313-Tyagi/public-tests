@@ -1,0 +1,9 @@
+Hi!
+Enter an int:  Value: 4
+ Received: 4, total: 4
+Enter an int:  Value: 5
+ Received: 5, total: 9
+Enter an int:  Value: 6
+ Received: 6, total: 15
+Enter an int:  Blank line encountered
+Bye!

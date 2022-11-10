@@ -1,0 +1,10 @@
+Hi!
+Enter an int:  Value: 1
+ Received: 1, total: 1
+Enter an int:  Value: 2
+ Received: 2, total: 3
+Enter an int:  Value: 3
+ Received: 3, total: 6
+Enter an int:  Value: 4
+ Received: 4, total: 10
+Enter an int: Bye!
