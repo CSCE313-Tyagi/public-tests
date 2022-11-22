@@ -149,7 +149,7 @@
     {
       "name": "B: ./problemB 4 <test-files/test-2-in.txt (Number of threads)",
       "setup": "cd B; make -s clean; make -s &>/dev/null",
-      "run": "cd B; ./problemB 4 <test-files/test-2-in.txt >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $2}' test-files/out.txt | sort | uniq | wc -l) -eq 4 ];",
+      "run": "cd B; ./problemB 4 <test-files/test-2-in.txt >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $1}' test-files/out.txt | sort | uniq | wc -l) -eq 4 ];",
       "input": "",
       "output": "",
       "comparison": "included",
