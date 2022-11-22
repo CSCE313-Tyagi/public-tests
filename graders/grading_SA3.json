@@ -1,0 +1,66 @@
+{
+  "tests": [
+    {
+      "name": "A: Compilation",
+      "setup": "cd A; make -s clean",
+      "run": "cd A; make",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0
+    },
+    {
+      "name": "A: ?",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    
+    {
+      "name": "B: Compilation",
+      "setup": "cd B; make -s clean",
+      "run": "cd B; make",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0
+    },
+    {
+      "name": "B: ?",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    
+    {
+      "name": "C: Compilation",
+      "setup": "cd C; make -s clean",
+      "run": "cd C; make",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0
+    },
+    {
+      "name": "C: ?",
+      "setup": "cd C; make -s clean; make -s &>/dev/null",
+      "run": "cd C; ",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    }
+  ]
+}
