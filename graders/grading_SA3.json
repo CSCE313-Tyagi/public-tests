@@ -10,15 +10,98 @@
       "timeout": 1,
       "points": 0
     },
+
     {
-      "name": "A: ?",
+      "name": "A: ./problemA test-files/test-1-in.txt 4 (Number of threads)",
       "setup": "cd A; make -s clean; make -s &>/dev/null",
-      "run": "cd A; ",
+      "run": "cd A; ./problemA test-files/test-1-in.txt 4 >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $1}' test-files/err.txt | uniq | wc -l) -eq 4 ];",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 1
+      "points": 0.33
+    },
+    {
+      "name": "A: ./problemA test-files/test-1-in.txt 4 (Per-thread sum size)",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./problemA test-files/test-1-in.txt 4 >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $2}' test-files/err.txt | uniq) == 3 ];",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+    {
+      "name": "A: ./problemA test-files/test-1-in.txt 4 (Output)",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./problemA test-files/test-1-in.txt 4 >test-files/out.txt 2>test-files/err.txt; diff -q test-files/out.txt test-files/test-1-out.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.34
+    },
+
+    {
+      "name": "A: ./problemA test-files/test-2-in.txt 10 (Number of threads)",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./problemA test-files/test-2-in.txt 10 >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $1}' test-files/err.txt | uniq | wc -l) -eq 10 ];",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+    {
+      "name": "A: ./problemA test-files/test-2-in.txt 10 (Per-thread sum size)",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./problemA test-files/test-2-in.txt 10 >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $2}' test-files/err.txt | uniq) == 50 ];",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+    {
+      "name": "A: ./problemA test-files/test-2-in.txt 10 (Output)",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./problemA test-files/test-2-in.txt 10 >test-files/out.txt 2>test-files/err.txt; diff -q test-files/out.txt test-files/test-2-out.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.34
+    },
+
+    {
+      "name": "A: ./problemA test-files/test-3-in.txt 100 (Number of threads)",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./problemA test-files/test-3-in.txt 100 >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $1}' test-files/err.txt | uniq | wc -l) -eq 100 ];",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+    {
+      "name": "A: ./problemA test-files/test-3-in.txt 100 (Per-thread sum size)",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./problemA test-files/test-3-in.txt 100 >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $2}' test-files/err.txt | uniq) == 4 ];",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+    {
+      "name": "A: ./problemA test-files/test-3-in.txt 100 (Output)",
+      "setup": "cd A; make -s clean; make -s &>/dev/null",
+      "run": "cd A; ./problemA test-files/test-3-in.txt 100 >test-files/out.txt 2>test-files/err.txt; diff -q test-files/out.txt test-files/test-3-out.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.34
     },
     
     {
@@ -31,15 +114,98 @@
       "timeout": 1,
       "points": 0
     },
+
     {
-      "name": "B: ?",
+      "name": "B: ./problemB 2 <test-files/test-1-in.txt (Number of threads)",
       "setup": "cd B; make -s clean; make -s &>/dev/null",
-      "run": "cd B; ",
+      "run": "cd B; ./problemB 2 <test-files/test-1-in.txt >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $1}' test-files/out.txt | sort | uniq | wc -l) -eq 2 ];",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 1
+      "points": 0.33
+    },
+    {
+      "name": "B: ./problemB 2 <test-files/test-1-in.txt (Output)",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./problemB 2 <test-files/test-1-in.txt >test-files/out.txt 2>test-files/err.txt; awk '{print $2}' test-files/out.txt > test-files/tmp.txt; diff -q test-files/tmp.txt test-files/test-1-in.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.34
+    },
+    {
+      "name": "B: ./problemB 2 <test-files/test-1-in.txt (Consumer trace)",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./problemB 2 <test-files/test-1-in.txt >test-files/out.txt 2>test-files/err.txt; diff -q test-files/err.txt test-files/test-1-err.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+
+    {
+      "name": "B: ./problemB 4 <test-files/test-2-in.txt (Number of threads)",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./problemB 4 <test-files/test-2-in.txt >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $2}' test-files/out.txt | sort | uniq | wc -l) -eq 4 ];",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+    {
+      "name": "B: ./problemB 4 <test-files/test-2-in.txt (Output)",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./problemB 4 <test-files/test-2-in.txt >test-files/out.txt 2>test-files/err.txt; awk '{print $2}' test-files/out.txt > test-files/tmp.txt; diff -q test-files/tmp.txt test-files/test-2-in.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.34
+    },
+    {
+      "name": "B: ./problemB 4 <test-files/test-2-in.txt (Consumer trace)",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./problemB 4 <test-files/test-2-in.txt >test-files/out.txt 2>test-files/err.txt; diff -q test-files/err.txt test-files/test-2-err.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+
+    {
+      "name": "B: ./problemB 10 <test-files/test-3-in.txt (Number of threads)",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./problemB 10 <test-files/test-3-in.txt >test-files/out.txt 2>test-files/err.txt; [ $(awk '{print $1}' test-files/out.txt | sort | uniq | wc -l) -eq 10 ];",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
+    },
+    {
+      "name": "B: ./problemB 10 <test-files/test-3-in.txt (Output)",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./problemB 10 <test-files/test-3-in.txt >test-files/out.txt 2>test-files/err.txt; awk '{print $2}' test-files/out.txt > test-files/tmp.txt; diff -q test-files/tmp.txt test-files/test-3-in.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.34
+    },
+    {
+      "name": "B: ./problemB 10 <test-files/test-3-in.txt (Consumer trace)",
+      "setup": "cd B; make -s clean; make -s &>/dev/null",
+      "run": "cd B; ./problemB 10 <test-files/test-3-in.txt >test-files/out.txt 2>test-files/err.txt; diff -q test-files/err.txt test-files/test-3-err.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 0.33
     },
     
     {
