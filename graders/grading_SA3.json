@@ -218,10 +218,41 @@
       "timeout": 1,
       "points": 0
     },
+
     {
-      "name": "C: ?",
+      "name": "C: Output ( ./problemC 3 1 )",
       "setup": "cd C; make -s clean; make -s &>/dev/null",
-      "run": "cd C; ",
+      "run": "cd C; ./problemC 3 1 >test-files/out.txt 2>test-files/err.txt. [ $(uniq < test-files/err.txt | wc -l) -eq 3 ] && diff test-files/test-1.txt test-files/out.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "C: Output ( ./problemC 3 2 )",
+      "setup": "cd C; make -s clean; make -s &>/dev/null",
+      "run": "cd C; ./problemC 3 2 >test-files/out.txt 2>test-files/err.txt. [ $(uniq < test-files/err.txt | wc -l) -eq 3 ] && diff test-files/test-2.txt test-files/out.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "C: Output ( ./problemC 5 5 )",
+      "setup": "cd C; make -s clean; make -s &>/dev/null",
+      "run": "cd C; ./problemC 5 5 >test-files/out.txt 2>test-files/err.txt. [ $(uniq < test-files/err.txt | wc -l) -eq 5 ] && diff test-files/test-3.txt test-files/out.txt &>/dev/null;",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "C: Output ( ./problemC 25 40 )",
+      "setup": "cd C; make -s clean; make -s &>/dev/null",
+      "run": "cd C; ./problemC 25 40 >test-files/out.txt 2>test-files/err.txt. [ $(uniq < test-files/err.txt | wc -l) -eq 25 ] && diff test-files/test-4.txt test-files/out.txt &>/dev/null;",
       "input": "",
       "output": "",
       "comparison": "included",
