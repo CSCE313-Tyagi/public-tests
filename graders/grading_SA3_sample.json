@@ -120,7 +120,7 @@
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 0
+      "points": 1
     },
 
     {
@@ -131,7 +131,7 @@
       "output": "",
       "comparison": "included",
       "timeout": 1,
-      "points": 0
+      "points": 1
     }
   ]
 }
